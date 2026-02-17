@@ -17,7 +17,7 @@ export function Footer() {
               href="mailto:michaelwangdesign@gmail.com"
               className="flex items-center gap-3 text-xl md:text-2xl font-medium hover:text-muted transition-colors"
             >
-              <Image src="/images/email_logo.png" alt="Email" width={28} height={28} className="shrink-0" />
+              <Image src="/images/email_logo.png" alt="Email" width={34} height={24} className="shrink-0" />
               <span>michaelwangdesign@gmail.com</span>
             </a>
             <a
@@ -26,7 +26,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-xl md:text-2xl font-medium hover:text-muted transition-colors"
             >
-              <Image src="/images/Linkedin_logo.png" alt="LinkedIn" width={28} height={28} className="shrink-0" />
+              <Image src="/images/Linkedin_logo.png" alt="LinkedIn" width={30} height={30} className="shrink-0" />
               <span>LinkedIn</span>
             </a>
             <a
