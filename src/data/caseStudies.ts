@@ -240,7 +240,7 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    title: "Guildy",
+    title: "Guildy.ai",
     slug: "guildy",
     subtitle:
       "A Gmail-based job search pipeline with AI interview prep.",
@@ -308,7 +308,7 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    title: "CapsuleWebsite",
+    title: "Capsuleweb.site",
     slug: "capsulewebsite",
     subtitle:
       "Insert $1. Get a website. A real website link. No code. No waiting.",

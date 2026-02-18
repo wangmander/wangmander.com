@@ -11,7 +11,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <div className="group">
       <Link href={`/case-studies/${study.slug}`} className="block">
-        <div className="aspect-[16/10] relative rounded-[10px] mb-6 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.10),0_1px_6px_rgba(0,0,0,0.06)]">
+        <div className="aspect-[16/10] relative rounded-[10px] mb-6 overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)]">
           {heroSrc ? (
             <Image
               src={heroSrc}
