@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { caseStudies } from "@/data/caseStudies";
 import { getImagesForCaseStudy, humanizeFilename } from "@/lib/images";
+import { CaseStudyHero, CaseStudyDecisionImages } from "@/components/CaseStudyImages";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
@@ -67,22 +67,7 @@ export default function CaseStudyPage({ params }: Props) {
 
         {/* Hero image */}
         {heroSrc && (
-          <a
-            href={heroSrc}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block mb-24 rounded-sm overflow-hidden border border-border"
-          >
-            <Image
-              src={heroSrc}
-              alt={`${study.title} hero`}
-              width={2400}
-              height={1600}
-              className="w-full h-auto"
-              priority
-              sizes="(max-width: 1200px) 100vw, 1200px"
-            />
-          </a>
+          <CaseStudyHero src={heroSrc} alt={`${study.title} hero`} />
         )}
 
         {/* At a Glance */}
@@ -181,33 +166,12 @@ export default function CaseStudyPage({ params }: Props) {
                   </p>
                 </div>
                 {decision.images.length > 0 && (
-                  <div className="space-y-6">
-                    {decision.images.map((img, j) => {
-                      const src = `/case-studies/${study.slug}/${img}`;
-                      return (
-                        <div key={j}>
-                          <a
-                            href={src}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block rounded-sm overflow-hidden border border-border hover:border-neutral-300 transition-colors"
-                          >
-                            <Image
-                              src={src}
-                              alt={humanizeFilename(img)}
-                              width={2400}
-                              height={1600}
-                              className="w-full h-auto"
-                              sizes="(max-width: 1200px) 100vw, 1200px"
-                            />
-                          </a>
-                          <p className="mt-3 text-sm text-muted text-center">
-                            {humanizeFilename(img)}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <CaseStudyDecisionImages
+                    images={decision.images.map((img) => ({
+                      src: `/case-studies/${study.slug}/${img}`,
+                      caption: humanizeFilename(img),
+                    }))}
+                  />
                 )}
               </div>
             ))}

@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-wide mx-auto px-6 py-20 md:px-10 md:py-32">
         <div>
           <p className="text-heading-1 font-medium tracking-tight text-foreground">
-            Let&apos;s work together
+            Build something ambitious.
           </p>
           <p className="mt-5 text-heading-2 text-muted font-normal max-w-content">
             Currently open to Product Design leadership roles at AI-forward
