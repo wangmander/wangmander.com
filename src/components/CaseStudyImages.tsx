@@ -16,7 +16,7 @@ export function CaseStudyHero({
     <>
       <button
         onClick={() => lightbox.open(src, alt)}
-        className="block w-full mb-24 rounded-[10px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.10),0_1px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.14),0_2px_8px_rgba(0,0,0,0.08)] transition-shadow cursor-zoom-in"
+        className="block w-full mb-24 rounded-[10px] overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.14),0_4px_8px_rgba(0,0,0,0.08)] transition-shadow cursor-zoom-in"
       >
         <Image
           src={src}
@@ -47,7 +47,7 @@ export function CaseStudyDecisionImages({
           <div key={j}>
             <button
               onClick={() => lightbox.open(img.src, img.caption)}
-              className="block w-full rounded-[10px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.10),0_1px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.14),0_2px_8px_rgba(0,0,0,0.08)] transition-shadow cursor-zoom-in"
+              className="block w-full rounded-[10px] overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.14),0_4px_8px_rgba(0,0,0,0.08)] transition-shadow cursor-zoom-in"
             >
               <Image
                 src={img.src}

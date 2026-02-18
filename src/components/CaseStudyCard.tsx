@@ -26,16 +26,6 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             </div>
           )}
         </div>
-        <div className="flex flex-wrap gap-2 mb-3">
-          {study.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs text-muted uppercase tracking-wider"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
         <h3 className="text-heading-2 font-medium tracking-tight group-hover:text-muted transition-colors">
           {study.title}
         </h3>
