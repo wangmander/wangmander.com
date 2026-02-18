@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { caseStudies } from "@/data/caseStudies";
+import { getImagesForCaseStudy, humanizeFilename } from "@/lib/images";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
@@ -25,6 +27,11 @@ export default function CaseStudyPage({ params }: Props) {
   const study = caseStudies.find((cs) => cs.slug === params.slug);
   if (!study) notFound();
 
+  const allImages = getImagesForCaseStudy(study.slug);
+  const heroSrc = study.heroImage
+    ? `/case-studies/${study.slug}/${study.heroImage}`
+    : allImages[0];
+
   return (
     <>
       <article className="max-w-wide mx-auto px-6 md:px-10">
@@ -40,7 +47,7 @@ export default function CaseStudyPage({ params }: Props) {
             {study.title}
           </h1>
           <p className="mt-6 text-body-lg text-muted max-w-content">
-            {study.description}
+            {study.subtitle}
           </p>
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
             <div>
@@ -58,16 +65,41 @@ export default function CaseStudyPage({ params }: Props) {
           </div>
         </header>
 
-        {/* Hero image placeholder */}
-        <div className="aspect-[16/9] bg-neutral-50 rounded-sm mb-24">
-          <div className="w-full h-full flex items-center justify-center text-muted text-sm">
-            Hero image — add to /public/case-studies/{study.slug}/01-hero.png
+        {/* Hero image */}
+        {heroSrc && (
+          <div className="relative aspect-[16/9] rounded-sm overflow-hidden border border-border mb-24">
+            <Image
+              src={heroSrc}
+              alt={`${study.title} hero`}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
           </div>
+        )}
+
+        {/* At a Glance */}
+        <div className="max-w-content mx-auto mb-20 p-8 bg-neutral-50 rounded-sm">
+          <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
+            At a Glance
+          </h2>
+          <p className="text-body leading-relaxed mb-6">
+            {study.problem.split(". ").slice(0, 2).join(". ")}.
+          </p>
+          <ul className="space-y-2">
+            {study.impact.slice(0, 4).map((item, i) => (
+              <li key={i} className="text-body flex gap-3">
+                <span className="text-muted shrink-0">-</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Content */}
         <div className="max-w-content mx-auto">
-          {/* Overview */}
+          {/* A: Overview */}
           <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
               Overview
@@ -75,7 +107,22 @@ export default function CaseStudyPage({ params }: Props) {
             <p className="text-body-lg leading-relaxed">{study.overview}</p>
           </section>
 
-          {/* Problem */}
+          {/* B: My Role */}
+          <section className="mb-20">
+            <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
+              My Role
+            </h2>
+            <ul className="space-y-3">
+              {study.myRole.map((item, i) => (
+                <li key={i} className="text-body leading-relaxed flex gap-3">
+                  <span className="text-muted shrink-0">-</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* C: The Problem */}
           <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
               The Problem
@@ -83,90 +130,125 @@ export default function CaseStudyPage({ params }: Props) {
             <p className="text-body-lg leading-relaxed">{study.problem}</p>
           </section>
 
-          {/* Image placeholder */}
-          <div className="mb-20 -mx-6 md:-mx-10 lg:-mx-24">
-            <div className="aspect-[16/9] bg-neutral-50 rounded-sm">
-              <div className="w-full h-full flex items-center justify-center text-muted text-sm">
-                Problem space image — /public/case-studies/{study.slug}/02-problem.png
-              </div>
-            </div>
-          </div>
-
-          {/* Approach */}
+          {/* D: What I Learned from Users */}
           <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
-              Approach
+              What I Learned from Users
             </h2>
             <div className="space-y-4">
-              {study.approach.map((step, i) => (
+              {study.userInsights.map((insight, i) => (
                 <div key={i} className="flex gap-4">
                   <span className="text-sm text-muted font-medium mt-1 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-body leading-relaxed">{step}</p>
+                  <p className="text-body leading-relaxed">{insight}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Image placeholder */}
-          <div className="mb-20 -mx-6 md:-mx-10 lg:-mx-24">
-            <div className="aspect-[16/9] bg-neutral-50 rounded-sm">
-              <div className="w-full h-full flex items-center justify-center text-muted text-sm">
-                Process image — /public/case-studies/{study.slug}/03-process.png
-              </div>
-            </div>
-          </div>
-
-          {/* Key Decisions */}
+          {/* E: The Approach */}
           <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
-              Key Decisions
+              The Approach
             </h2>
-            <div className="space-y-12">
-              {study.keyDecisions.map((decision, i) => (
-                <div key={i}>
-                  <h3 className="text-heading-2 font-medium tracking-tight mb-3">
+            <p className="text-body-lg leading-relaxed">{study.approach}</p>
+          </section>
+        </div>
+
+        {/* F: Key Design Decisions */}
+        <section className="mb-20">
+          <div className="max-w-content mx-auto">
+            <h2 className="text-xs uppercase tracking-wider text-muted mb-12">
+              Key Design Decisions
+            </h2>
+          </div>
+          <div className="space-y-24">
+            {study.keyDecisions.map((decision, i) => (
+              <div key={i}>
+                <div className="max-w-content mx-auto mb-8">
+                  <h3 className="text-heading-2 font-medium tracking-tight mb-4">
                     {decision.title}
                   </h3>
                   <p className="text-body text-muted leading-relaxed">
                     {decision.description}
                   </p>
                 </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Image placeholder */}
-          <div className="mb-20 -mx-6 md:-mx-10 lg:-mx-24">
-            <div className="aspect-[16/9] bg-neutral-50 rounded-sm">
-              <div className="w-full h-full flex items-center justify-center text-muted text-sm">
-                Solution image — /public/case-studies/{study.slug}/04-solution.png
+                {decision.images.length > 0 && (
+                  <div className="space-y-6">
+                    {decision.images.map((img, j) => {
+                      const src = `/case-studies/${study.slug}/${img}`;
+                      return (
+                        <div key={j}>
+                          <div className="relative aspect-[16/9] rounded-sm overflow-hidden border border-border">
+                            <Image
+                              src={src}
+                              alt={humanizeFilename(img)}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 1200px) 100vw, 1200px"
+                            />
+                          </div>
+                          <p className="mt-3 text-sm text-muted text-center">
+                            {humanizeFilename(img)}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
           </div>
+        </section>
 
-          {/* Impact */}
+        {/* G: Impact */}
+        <div className="max-w-content mx-auto">
           <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
               Impact
             </h2>
             <ul className="space-y-3">
               {study.impact.map((item, i) => (
-                <li key={i} className="text-body-lg leading-relaxed">
-                  {item}
+                <li key={i} className="text-body-lg leading-relaxed flex gap-3">
+                  <span className="text-muted shrink-0">-</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </section>
 
-          {/* What's Next */}
-          <section className="mb-24">
+          {/* H: What I Would Do Next */}
+          <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
-              What&apos;s Next
+              What I Would Do Next
             </h2>
-            <p className="text-body-lg leading-relaxed">{study.next}</p>
+            <ul className="space-y-3">
+              {study.whatsNext.map((item, i) => (
+                <li key={i} className="text-body-lg leading-relaxed flex gap-3">
+                  <span className="text-muted shrink-0">-</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </section>
+
+          {/* I: Deep Dive */}
+          {study.deckUrl && (
+            <section className="mb-24">
+              <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
+                Deep Dive
+              </h2>
+              <a
+                href={study.deckUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-foreground text-white text-sm font-medium rounded-full hover:bg-neutral-700 transition-colors"
+              >
+                View full deck &rarr;
+              </a>
+            </section>
+          )}
         </div>
       </article>
 
