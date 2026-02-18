@@ -11,18 +11,17 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <div className="group">
       <Link href={`/case-studies/${study.slug}`} className="block">
-        <div className="bg-neutral-50 rounded-[10px] mb-6 overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)]">
+        <div className="aspect-[16/10] relative rounded-[10px] mb-6 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.10),0_1px_6px_rgba(0,0,0,0.06)]">
           {heroSrc ? (
             <Image
               src={heroSrc}
               alt={study.title}
-              width={1200}
-              height={800}
-              className="w-full h-auto"
+              fill
+              className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           ) : (
-            <div className="aspect-[16/10] w-full flex items-center justify-center text-muted text-sm">
+            <div className="w-full h-full flex items-center justify-center text-muted text-sm bg-neutral-50">
               {study.title}
             </div>
           )}
