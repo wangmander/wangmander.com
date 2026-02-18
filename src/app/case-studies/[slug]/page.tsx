@@ -67,16 +67,22 @@ export default function CaseStudyPage({ params }: Props) {
 
         {/* Hero image */}
         {heroSrc && (
-          <div className="relative aspect-[16/9] rounded-sm overflow-hidden border border-border mb-24">
+          <a
+            href={heroSrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mb-24 rounded-sm overflow-hidden border border-border"
+          >
             <Image
               src={heroSrc}
               alt={`${study.title} hero`}
-              fill
-              className="object-cover"
+              width={2400}
+              height={1600}
+              className="w-full h-auto"
               priority
               sizes="(max-width: 1200px) 100vw, 1200px"
             />
-          </div>
+          </a>
         )}
 
         {/* At a Glance */}
@@ -180,15 +186,21 @@ export default function CaseStudyPage({ params }: Props) {
                       const src = `/case-studies/${study.slug}/${img}`;
                       return (
                         <div key={j}>
-                          <div className="relative aspect-[16/9] rounded-sm overflow-hidden border border-border">
+                          <a
+                            href={src}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block rounded-sm overflow-hidden border border-border hover:border-neutral-300 transition-colors"
+                          >
                             <Image
                               src={src}
                               alt={humanizeFilename(img)}
-                              fill
-                              className="object-cover"
+                              width={2400}
+                              height={1600}
+                              className="w-full h-auto"
                               sizes="(max-width: 1200px) 100vw, 1200px"
                             />
-                          </div>
+                          </a>
                           <p className="mt-3 text-sm text-muted text-center">
                             {humanizeFilename(img)}
                           </p>

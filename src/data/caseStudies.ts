@@ -29,10 +29,10 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "Transform UX",
+    title: "Transform UX: AI Co-Creator for Data Pipelines",
     slug: "c3-transform",
     subtitle:
-      "AI Co-Creator for Data Pipelines",
+      "Making AI-powered data transformations feel like a conversation, not a code editor.",
     description:
       "Redesigning the enterprise AI platform to make complex data transformations intuitive through AI-assisted natural language interaction.",
     tags: ["Enterprise AI", "Platform Design", "Complex Workflows"],
@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     team: "Cross-functional team of 12",
     type: "featured",
     imageDir: "/case-studies/c3-transform",
-    heroImage: "v1 AI interaction.png",
+    heroImage: "v2-2 transform-complete.png",
 
     overview:
       "C3 Transform is the data transformation engine inside the C3 AI Suite. It lets enterprise teams define how raw data becomes usable inputs for AI models. I led the redesign of the transformation authoring experience, introducing an AI-assisted workflow that replaced manual coding with natural language interaction. Users describe the transform they want in plain English and the system generates the expression code. We shipped two major iterations and it became the default way customers build transforms across the platform.",
@@ -133,10 +133,10 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    title: "Genesis",
+    title: "Genesis: Reimagining the Enterprise Platform",
     slug: "c3-ai-studio",
     subtitle:
-      "Reimagining the Enterprise Platform",
+      "A guided, AI-powered environment for building enterprise applications from intent to deployment.",
     description:
       "Designing an AI-powered environment that takes users from a plain language description to a deployed enterprise application in hours, not months.",
     tags: ["AI/ML", "Analytics", "No-Code"],
