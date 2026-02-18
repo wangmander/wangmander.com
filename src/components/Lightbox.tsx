@@ -92,7 +92,7 @@ export function Lightbox({
           alt={alt}
           width={3000}
           height={2000}
-          className="max-w-full max-h-[90vh] w-auto h-auto rounded-sm"
+          className="max-w-full max-h-[90vh] w-auto h-auto rounded-[10px]"
           quality={100}
           priority
         />

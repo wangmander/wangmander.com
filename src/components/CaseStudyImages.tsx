@@ -16,7 +16,7 @@ export function CaseStudyHero({
     <>
       <button
         onClick={() => lightbox.open(src, alt)}
-        className="block w-full mb-24 rounded-sm overflow-hidden border border-border hover:border-neutral-300 transition-colors cursor-zoom-in"
+        className="block w-full mb-24 rounded-[10px] overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.12)] transition-shadow cursor-zoom-in"
       >
         <Image
           src={src}
@@ -47,7 +47,7 @@ export function CaseStudyDecisionImages({
           <div key={j}>
             <button
               onClick={() => lightbox.open(img.src, img.caption)}
-              className="block w-full rounded-sm overflow-hidden border border-border hover:border-neutral-300 transition-colors cursor-zoom-in"
+              className="block w-full rounded-[10px] overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.12)] transition-shadow cursor-zoom-in"
             >
               <Image
                 src={img.src}
