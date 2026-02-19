@@ -348,7 +348,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Vending machine model: one form, one payment, one output",
         description:
           "Every website builder adds more options to handle more use cases. CapsuleWebsite goes the opposite direction. The entire creation flow lives on a single page. You see the form, the payment button (\"Dispense\"), and that is it. No account creation required upfront. No multi-step wizard. The form asks for the bare minimum: site type, description, name, email, vibe, and color. The \"Dispense\" button with integrated Google Pay and Apple Pay makes the payment feel as simple as buying something from an actual vending machine. This extreme simplicity is the product.",
-        images: ["hero-desktop.png", "desktop-full.png"],
+        images: ["desktop-full.png"],
       },
       {
         title: "Quality floor and built-in sharing loop",
