@@ -225,6 +225,8 @@ export const caseStudies: CaseStudy[] = [
       "Enabled non-technical users to build and deploy enterprise AI applications for the first time on C3",
       "Dramatically reduced time from idea to deployed application",
       "Adopted by several major enterprise customers — including Fortune 500 and Forbes-recognized companies — within the first quarter of launch",
+      "Demoed at Davos as a flagship example of enterprise AI innovation",
+      "Selected to headline C3 AI's upcoming Transform conference",
       "Featured in C3 AI's annual product keynote as a flagship capability",
       "Eliminated the need for dedicated developer support during initial app creation",
     ],
