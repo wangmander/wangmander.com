@@ -233,7 +233,6 @@ export const caseStudies: CaseStudy[] = [
 
     whatsNext: [
       "Add real-time collaboration so multiple stakeholders can shape an application together",
-      "Expand AI generation to handle more complex application types beyond analytics dashboards",
       "Build a template marketplace where customers can share and fork successful application configurations",
       "Integrate deeper monitoring with automated AI-driven alerts and optimization suggestions",
     ],
