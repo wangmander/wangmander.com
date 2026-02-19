@@ -136,41 +136,39 @@ export const caseStudies: CaseStudy[] = [
     title: "Genesis: Reimagining the Enterprise Platform",
     slug: "c3-ai-studio",
     subtitle:
-      "A guided, AI-powered environment for building enterprise applications from intent to deployment.",
+      "A unified code-and-no-code environment for building enterprise AI applications from intent to deployment.",
     description:
-      "Designing an AI-powered environment that takes users from a plain language description to a deployed enterprise application in hours, not months.",
+      "Leading the 0-to-1 redesign of C3 AI Studio — a platform that lets both technical and non-technical users build enterprise AI applications starting from a plain language prompt.",
     tags: ["AI/ML", "Analytics", "No-Code"],
-    role: "Senior Product Designer",
+    role: "Innovation Lead",
     timeline: "2022 — 2023",
-    team: "Product trio + 8 engineers",
+    team: "Co-led multidisciplinary squad (Design, Product, Eng)",
     type: "featured",
     imageDir: "/case-studies/c3-ai-studio",
     heroImage: "1-Genesis-home1-start.png",
 
     overview:
-      "Genesis is a no-code environment where users describe what they want to build in plain language and the platform handles the rest. From capturing intent to deploying a live enterprise AI application, Genesis walks users through every step with AI guidance. I designed the end-to-end experience covering intent capture, app creation, data configuration, deployment, monitoring, and sharing. It shipped as a flagship feature in the C3 AI product suite and was featured in the company's annual product keynote.",
+      "Genesis is C3 AI Studio reimagined — a unified environment that blends code and no-code in a single platform. Business users can build complex enterprise AI applications from a plain language prompt. Developers retain full access to code and granular controls. I led the innovation strategy and 0-to-1 redesign over a 6-month cycle, co-leading a multidisciplinary team across Design, Product, and Engineering. It was a large, complex project with many moving parts — I set the vision and shaped the core interaction models while collaborating closely with the team on execution.",
 
     myRole: [
-      "Designed the full application flow from home screen through deployment and sharing",
-      "Created the intent-capture interaction model where users describe what they want in natural language",
-      "Defined the guided step-by-step experience for data hydration and pipeline configuration",
-      "Worked with engineering to scope what AI could reliably generate versus what needed manual input",
-      "Led design reviews with the VP of Product and CEO",
+      "Designed the Prompt-First interaction model — letting non-technical users describe what they want and get a working app",
+      "Defined a three-mode workspace (Preview, Code, Configure) so users could verify the app visually without losing access to low-level controls",
+      "Set the North Star vision, ran design sprints with the team, and secured VP buy-in for the shift to Chat-First",
+      "Led design reviews with the VP of Product",
     ],
 
     problem:
-      "Building an enterprise AI application on C3 required a team of developers working for weeks or months. Business users who understood the domain problem had no way to translate their knowledge into a working application without heavy engineering support. This created a bottleneck where the people closest to the problem were the furthest from the solution. Competitors were shipping simpler tools that let business users self-serve, but those tools could not handle the complexity of real enterprise data. We needed something that was genuinely easy to use without sacrificing the power that made C3 valuable in the first place.",
+      "The existing platform required users to understand the full database architecture before seeing any value — a model that created blank canvas paralysis. Non-technical users hit a wall immediately, and even technical users needed weeks of onboarding. Basic tasks that business users could describe in a sentence required high-code engineering support to execute.",
 
     userInsights: [
-      "Business analysts could clearly articulate what application they needed but had no mental model for how to build it technically",
-      "The gap between \"I want a predictive maintenance dashboard\" and a working application was filled entirely by developer time and meetings",
-      "Users who tried the existing developer tools gave up within the first hour because the starting point assumed too much technical knowledge",
-      "The most successful customer deployments started with a clear natural language description of the use case, suggesting that intent capture could drive automation",
-      "Data configuration was the single biggest source of project delays, not model building or UI design",
+      "Business analysts could articulate exactly what they needed but had no path to build it without engineering support",
+      "Users who tried the existing tools gave up within the first hour — the starting point assumed too much",
+      "The most successful deployments always started from a clear natural language description of the use case",
+      "Data configuration was the biggest source of project delays, not model building or UI",
     ],
 
     approach:
-      "I started by studying the 10 most successful C3 customer deployments to find patterns in how they went from idea to working application. A clear sequence emerged: capture intent, form a plan, create the app scaffold, configure data, deploy, and monitor. Each step had well-defined inputs and outputs. That meant we could build a guided flow where the AI handles the heavy lifting and the user makes decisions at key checkpoints. I designed the experience as a linear journey with clear stages. Each stage shows the user exactly what the system is doing, what it needs from them, and what comes next. No hidden complexity. If the AI is uncertain about something, it asks rather than guessing. We tested the flow with 5 enterprise customers using realistic data and iterated on the areas where users got stuck or lost confidence.",
+      "We started from scratch — no assumptions carried over from the old model. I researched the emerging generation of prompt-driven tools (Cursor, v0, Manus, Antigravity) to understand where interaction patterns were heading. From there, I ran a series of design sprint worksessions with the team to define core principles and goals. My PM counterpart and I then iterated through mid-fi prototypes, debating and deciding on the core interaction model together. The process was collaborative and fast — prototype, review, debate, refine.",
 
     keyDecisions: [
       {
@@ -203,9 +201,9 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        title: "One-click deployment with environment selection",
+        title: "Simplified deployment with environment selection",
         description:
-          "Deploying an enterprise application usually involves DevOps teams and staging environments. I designed a deployment flow that abstracts that complexity. Users select their target environment, click deploy, and watch the progress. The system handles provisioning, configuration, and health checks. A clear status screen shows deployment progress and confirms when the app is live.",
+          "Deploying an enterprise application typically involves DevOps teams and staging environments. We designed a deployment flow that abstracts that complexity — users select their target environment, step through the deployment, and get clear status feedback at each stage. The goal was to make something that had always required engineering handoff feel manageable for the person who built the app.",
         images: [
           "9-Genesis-app-deploy1-select.png",
           "10-Genesis-app-deploy2-deploying.png",
@@ -224,12 +222,11 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     impact: [
-      "Enabled non-technical users to build and deploy AI applications for the first time on C3",
-      "Reduced time from idea to deployed application from weeks to hours",
-      "Adopted by 3 Fortune 500 customers within the first quarter of launch",
+      "Enabled non-technical users to build and deploy enterprise AI applications for the first time on C3",
+      "Dramatically reduced time from idea to deployed application",
+      "Adopted by several major enterprise customers — including Fortune 500 and Forbes-recognized companies — within the first quarter of launch",
       "Featured in C3 AI's annual product keynote as a flagship capability",
       "Eliminated the need for dedicated developer support during initial app creation",
-      "Customer satisfaction scores improved from 3.2 to 4.6 out of 5",
     ],
 
     whatsNext: [
