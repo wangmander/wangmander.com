@@ -109,6 +109,7 @@ export const caseStudies: CaseStudy[] = [
       "↓ 35% time to first successful transform",
       "↓ 25% runs to success — faster iteration cycles",
       "~40% of transforms completed without any manual code writing",
+      "Established a reusable UI pattern for the platform — downstream teams can now inherit this interaction model",
     ],
 
     whatsNext: [
