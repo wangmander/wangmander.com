@@ -162,19 +162,25 @@ export default function CaseStudyPage({ params }: Props) {
           <div className="space-y-24">
             {study.keyDecisions.map((decision, i) => (
               <div key={i}>
-                <div className="max-w-content mx-auto mb-8">
-                  <h3 className="text-heading-2 font-medium tracking-tight mb-4">
-                    {decision.title}
-                  </h3>
-                  <p className="text-body text-muted leading-relaxed">
-                    {decision.description}
-                  </p>
-                </div>
+                {(decision.title || decision.description) && (
+                  <div className="max-w-content mx-auto mb-8">
+                    {decision.title && (
+                      <h3 className="text-heading-2 font-medium tracking-tight mb-4">
+                        {decision.title}
+                      </h3>
+                    )}
+                    {decision.description && (
+                      <p className="text-body text-muted leading-relaxed">
+                        {decision.description}
+                      </p>
+                    )}
+                  </div>
+                )}
                 {decision.images.length > 0 && (
                   <CaseStudyDecisionImages
-                    images={decision.images.map((img) => ({
+                    images={decision.images.map((img, idx) => ({
                       src: `/case-studies/${study.slug}/${img}`,
-                      caption: humanizeFilename(img),
+                      caption: decision.captions?.[idx] ?? humanizeFilename(img),
                     }))}
                     layout={decision.layout}
                   />

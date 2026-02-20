@@ -23,9 +23,10 @@ export type CaseStudy = {
   userInsights: string[];
   approach: string;
   keyDecisions: {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     images: string[];
+    captions?: string[];
     layout?: "grid-2x2" | "side-by-side";
   }[];
   impact: string[];
@@ -368,10 +369,11 @@ export const caseStudies: CaseStudy[] = [
         layout: "grid-2x2",
       },
       {
-        title: "Mobile-first: create and edit from anywhere",
-        description:
-          "Both screens are designed for mobile. The creation flow works top to bottom on your phone — pick a type, describe your site, tap Dispense. The edit flow lets you update any existing site by entering your site ID and describing what should change in plain language.",
         images: ["mobile1.png", "mobile2.png"],
+        captions: [
+          "Mobile creation\nDesigned mobile-first so you can generate a real site from your phone in one vertical flow: pick a site type, describe what you want, tap Dispense, get a live link.",
+          "Mobile edits\nUpdate an existing site anywhere: paste your Site ID, describe the change in plain language, and the site regenerates while keeping the same URL.",
+        ],
         layout: "side-by-side",
       },
       {

@@ -75,25 +75,44 @@ export function CaseStudyDecisionImages({
   if (layout === "side-by-side") {
     return (
       <>
-        <div className="flex gap-6 justify-center flex-wrap">
+        <div className="flex gap-14 justify-center flex-wrap">
           {images.map((img, j) => {
             const isMobile = img.src.toLowerCase().includes("mobile");
+            const [label, ...descParts] = img.caption.split("\n");
+            const description = descParts.join("\n");
             return (
               <div key={j} className="flex flex-col items-center">
                 <button
                   onClick={() => lightbox.open(img.src, img.caption)}
-                  className={`block ${shadowClass} ${isMobile ? "w-[260px]" : "w-full max-w-[480px]"}`}
+                  className={`block ${shadowClass} ${isMobile ? "w-[300px]" : "w-full max-w-[480px]"}`}
                 >
-                  <Image
-                    src={img.src}
-                    alt={img.caption}
-                    width={isMobile ? 520 : 960}
-                    height={isMobile ? 1040 : 800}
-                    className="w-full h-auto"
-                    sizes={isMobile ? "260px" : "480px"}
-                  />
+                  {isMobile ? (
+                    <div className="relative h-[580px] w-full overflow-hidden">
+                      <Image
+                        src={img.src}
+                        alt={label}
+                        fill
+                        className="object-cover object-top"
+                        sizes="300px"
+                      />
+                    </div>
+                  ) : (
+                    <Image
+                      src={img.src}
+                      alt={label}
+                      width={960}
+                      height={800}
+                      className="w-full h-auto"
+                      sizes="480px"
+                    />
+                  )}
                 </button>
-                <p className="mt-3 text-sm text-muted text-center">{img.caption}</p>
+                <div className="mt-4 text-center max-w-[300px]">
+                  <p className="text-sm font-semibold">{label}</p>
+                  {description && (
+                    <p className="mt-1 text-sm text-muted leading-relaxed">{description}</p>
+                  )}
+                </div>
               </div>
             );
           })}
