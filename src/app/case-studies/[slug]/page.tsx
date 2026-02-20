@@ -68,6 +68,21 @@ export default function CaseStudyPage({ params }: Props) {
               <p className="mt-1 font-medium">{study.team}</p>
             </div>
           </div>
+          {study.builtWith && study.builtWith.length > 0 && (
+            <div className="mt-6">
+              <span className="text-sm text-muted">Built with</span>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {study.builtWith.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-3 py-1 text-xs font-medium rounded-full border border-neutral-200 text-neutral-600"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </header>
 
         {/* Hero image */}

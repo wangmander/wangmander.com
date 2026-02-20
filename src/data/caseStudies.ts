@@ -15,6 +15,7 @@ export type CaseStudy = {
   ctaUrl?: string;
   ctaLabel?: string;
   tagline?: string;
+  builtWith?: string[];
 
   // Narrative sections
   overview: string;
@@ -261,6 +262,7 @@ export const caseStudies: CaseStudy[] = [
     team: "Solo design + AI-assisted development",
     type: "side-project",
     imageDir: "/case-studies/guildy",
+    builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT", "Google OAuth"],
     heroImage: "guildy-desktop.png",
 
     overview:
@@ -333,6 +335,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "hero-desktop.png",
     ctaUrl: "https://capsuleweb.site",
     ctaLabel: "Give it a try",
+    builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT"],
 
     overview:
       "CapsuleWebsite is a website vending machine. You pick a site type, describe what you want, pay about one dollar, and get a real published website with a shareable link in about 30 seconds. No templates to customize, no editors to learn, no code to write. The mental model is a literal vending machine: insert money, get the thing. I designed and built it as a solo project to explore the absolute simplest possible path from \"I need a website\" to a live URL. The product is live at capsuleweb.site with a growing gallery of user-created sites.",
