@@ -48,7 +48,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Enterprise AI", "Platform Design", "Complex Workflows"],
     role: "Lead Product Designer",
     timeline: "2023 — 2024",
-    team: "Cross-functional team of 12",
+    team: "Core pod of 4 (Product, Engineering, Design)",
     type: "featured",
     imageDir: "/case-studies/c3-transform",
     heroImage: "v2-2 transform-complete.png",
@@ -57,27 +57,23 @@ export const caseStudies: CaseStudy[] = [
       "C3 Transform is the data transformation engine inside the C3 AI Suite. It lets enterprise teams define how raw data becomes usable inputs for AI models. I led the redesign of the transformation authoring experience, introducing an AI-assisted workflow that replaced manual coding with natural language interaction. Users describe the transform they want in plain English and the system generates the expression code. We shipped two major iterations and it became the default way customers build transforms across the platform.",
 
     myRole: [
-      "Led end-to-end design from research through production ship",
-      "Ran user research sessions with data engineers at 3 enterprise customers",
-      "Designed two major iterations of the AI interaction model (inline widget and chat panel)",
-      "Partnered closely with ML engineering on prompt design and response formatting",
-      "Presented the final design to C3 AI leadership for go/no-go approval",
+      "Owned the UX end to end — from strategy through final shipped design across authoring, review, and execution flows",
+      "Designed the AI co-authoring workflow: a chat-based drafting and review experience that lets less-technical users start from intent while technical users can inspect, edit, or take over in code",
+      "Built trust into the verification layer — preview, diff, history, run + compare, and rollback — so teams could safely validate AI-generated transforms before committing",
+      "Validated iteratively with data engineers, solution engineers, and app developers across multiple rounds of testing",
     ],
 
     problem:
       "Writing data transformations in C3 required deep knowledge of the platform's proprietary expression language. Even experienced data engineers spent hours on transforms that should have taken minutes. New customers hit a wall during onboarding because they could not write transforms without extensive training. Support tickets about transformation errors were the single largest category in our backlog. The expression language was powerful but obscure. Simple tasks like joining two data sources or filtering by date required syntax that felt nothing like SQL or Python. We were asking users to learn a new language just to do something they already knew how to do.",
 
     userInsights: [
-      "Data engineers described the expression language as \"like SQL but none of the patterns transfer\" and defaulted to copy-pasting from old projects",
-      "Most transforms followed a small set of common patterns (joins, filters, aggregations) but the interface treated every transform as a blank-slate coding task",
-      "Users spent more time debugging syntax errors than thinking about the actual data logic",
-      "Teams had created internal wikis with transform recipes because the official docs were too abstract",
-      "Non-technical stakeholders could describe the transform they wanted in plain English but had no way to execute it themselves",
-      "The biggest fear was not writing the wrong transform but not knowing if it was wrong until much later in the pipeline",
+      "Users want to steer, not spectate — the best moments in testing were when someone pushed back on a suggestion, redirected the AI, or jumped into the code themselves. The worst were when they felt like they were just waiting for something to approve.",
+      "Real-time preview was the trust unlock — seeing a transform execute against live data before committing changed everything. No amount of diffs or confirmation dialogs came close to the confidence that gave people.",
+      "The expression language was a wall, not a floor — even experienced data engineers were copy-pasting from old projects rather than writing from scratch, because the syntax rewarded institutional knowledge over logic.",
     ],
 
     approach:
-      "I started by mapping every transform our top 20 customers had built in the last year. This gave us a clear picture of what people actually needed versus what the tool theoretically supported. About 80% of transforms fell into five categories. That was the opening. If we could make those five patterns effortless, we would cover most real usage. I proposed an AI-assisted approach where users describe what they want in plain language and the system generates the expression code. We prototyped two versions. The first was a compact widget that appeared inline next to the code editor. The second was a full chat panel that supported back-and-forth refinement. We tested both with customers. The widget was faster for simple transforms but broke down when users needed to iterate. The chat panel handled complexity better and gave users more confidence because they could see the AI reasoning. We shipped the chat panel as the primary experience with the widget as a quick-action shortcut.",
+      "We opened with a competitive sweep — every AI-native tool with a meaningful co-authoring or code-generation model, from coding assistants to emerging data tools. The goal wasn't to copy patterns but to understand what trust looks like when humans and AI share a workflow. From there, we ran a series of PDE whiteboarding sprints — Product, Design, and Engineering working through the authoring flow together before anyone touched a design tool. Fast, argumentative, generative. I moved into prototyping quickly and kept fidelity intentionally low so we could stress-test ideas without getting precious about them. We put early concepts in front of data engineers, solution engineers, and app developers and watched them break things. Every feature in the verification layer — preview, diff, history, run + compare, rollback — was earned by something we saw go wrong in testing.",
 
     keyDecisions: [
       {
