@@ -46,7 +46,12 @@ export default function CaseStudyPage({ params }: Props) {
           <h1 className="mt-8 text-hero font-medium tracking-tight text-balance">
             {study.title}
           </h1>
-          <p className="mt-6 text-body-lg text-muted max-w-content">
+          {study.tagline && (
+            <h2 className="mt-6 text-2xl md:text-3xl font-medium tracking-tight leading-snug max-w-3xl">
+              {study.tagline}
+            </h2>
+          )}
+          <p className="mt-4 text-body-lg text-muted max-w-content">
             {study.subtitle}
           </p>
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">

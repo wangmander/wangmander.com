@@ -14,6 +14,7 @@ export type CaseStudy = {
 
   ctaUrl?: string;
   ctaLabel?: string;
+  tagline?: string;
 
   // Narrative sections
   overview: string;
@@ -35,6 +36,7 @@ export const caseStudies: CaseStudy[] = [
   {
     title: "Transform UX: AI Co-Creator for Data Pipelines",
     slug: "c3-transform",
+    tagline: "A ground-up reimagining of data transforms into an AI co-authoring workflow—AI drafts, humans verify, the system proves it with preview/diff/history, run + compare, and rollback—so it feels like collaboration, not editing scripts.",
     subtitle:
       "Making AI-powered data transformations feel like a conversation, not a code editor.",
     description:
@@ -139,6 +141,7 @@ export const caseStudies: CaseStudy[] = [
   {
     title: "Genesis: Reimagining the Enterprise Platform",
     slug: "c3-ai-studio",
+    tagline: "A net-new, vibe-first enterprise builder: one unified no-code + code workspace that turns intent into a deployed AI application—guided creation, generated scaffolding, verification, and release in a single flow.",
     subtitle:
       "A unified code-and-no-code environment for building enterprise AI applications from intent to deployment.",
     description:
@@ -244,12 +247,13 @@ export const caseStudies: CaseStudy[] = [
   {
     title: "Guildy.ai",
     slug: "guildy",
+    tagline: "Job hunting is becoming an inbox-scale problem—more threads, more rounds, more noise—so I built Guildy 0→1 to turn Gmail into a live pipeline and generate targeted prep for every stage.",
     subtitle:
       "A Gmail-based job search pipeline with AI interview prep.",
     description:
       "Turning the chaos of job hunting into a clean, automated pipeline that lives where your job search already happens: your inbox.",
     tags: ["AI", "Productivity", "Side Project"],
-    role: "Co-founder & Designer",
+    role: "Creator & Designer",
     timeline: "2024 — Present",
     team: "Solo design + AI-assisted development",
     type: "side-project",
@@ -312,6 +316,7 @@ export const caseStudies: CaseStudy[] = [
   {
     title: "Capsuleweb.site",
     slug: "capsulewebsite",
+    tagline: "A $1 website vending machine I built from scratch that turns a single sentence into a live, shareable link in seconds—no code, no setup, no waiting.",
     subtitle:
       "Insert $1. Get a website. A real website link. No code. No waiting.",
     description:
