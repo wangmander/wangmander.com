@@ -17,6 +17,7 @@ export type CaseStudy = {
   ctaLabel?: string;
   tagline?: string;
   builtWith?: string[];
+  keyDecisionsLabel?: string;
 
   // Narrative sections
   overview: string;
@@ -30,6 +31,7 @@ export type CaseStudy = {
     images: string[];
     captions?: string[];
     layout?: "grid-2x2" | "side-by-side";
+    imageAspect?: string;
     featureTitle?: boolean;
     sectionBreak?: string;
   }[];
@@ -310,6 +312,7 @@ export const caseStudies: CaseStudy[] = [
     imageDir: "/case-studies/capsulewebsite",
     heroImage: "hero-desktop.png",
     titleUrl: "https://capsuleweb.site",
+    keyDecisionsLabel: "User Flow",
     ctaUrl: "https://capsuleweb.site",
     ctaLabel: "Give it a try",
     builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT"],
@@ -344,6 +347,7 @@ export const caseStudies: CaseStudy[] = [
           "The whole product is one form. Pick a category, describe your site, add photos, name it, choose a vibe. Nothing to configure before you start — the empty state is the starting line.",
         images: ["0-emtpy.png", "1-fill_it_out.png"],
         layout: "side-by-side",
+        imageAspect: "1310 / 1742",
       },
       {
         title: "Dispensed",

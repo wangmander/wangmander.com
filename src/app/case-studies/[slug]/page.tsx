@@ -193,7 +193,7 @@ export default function CaseStudyPage({ params }: Props) {
         <section className="mb-20">
           <div className="max-w-content mx-auto">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-12">
-              Key Design Decisions
+              {study.keyDecisionsLabel ?? "Key Design Decisions"}
             </h2>
           </div>
           <div className="space-y-24">
@@ -235,6 +235,7 @@ export default function CaseStudyPage({ params }: Props) {
                       caption: decision.captions?.[idx] ?? humanizeFilename(img),
                     }))}
                     layout={decision.layout}
+                    imageAspect={decision.imageAspect}
                   />
                 )}
               </div>

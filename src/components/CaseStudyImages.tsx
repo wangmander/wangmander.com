@@ -36,9 +36,11 @@ export function CaseStudyHero({
 export function CaseStudyDecisionImages({
   images,
   layout,
+  imageAspect,
 }: {
   images: { src: string; caption: string }[];
   layout?: "grid-2x2" | "side-by-side";
+  imageAspect?: string;
 }) {
   const lightbox = useLightbox();
 
@@ -96,6 +98,16 @@ export function CaseStudyDecisionImages({
                         fill
                         className="object-cover object-top"
                         sizes="300px"
+                      />
+                    </div>
+                  ) : imageAspect ? (
+                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: imageAspect }}>
+                      <Image
+                        src={img.src}
+                        alt={label}
+                        fill
+                        className="object-cover object-top"
+                        sizes="50vw"
                       />
                     </div>
                   ) : (
