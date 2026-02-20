@@ -54,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "v2-2 transform-complete.png",
 
     overview:
-      "C3 Transform is the data transformation engine inside the C3 AI Suite. It lets enterprise teams define how raw data becomes usable inputs for AI models. I led the redesign of the transformation authoring experience, introducing an AI-assisted workflow that replaced manual coding with natural language interaction. Users describe the transform they want in plain English and the system generates the expression code. We shipped two major iterations and it became the default way customers build transforms across the platform.",
+      "C3 Transform is the data transformation engine inside C3 AI Suite — how enterprise teams shape raw data into inputs for AI models. When we redesigned the authoring experience, we started down the path most AI tools take: AI generates, human reviews, human approves. V1 shipped that way. Users hated it — not the output, but the feeling of being a spectator in their own workflow. So we scrapped the model entirely. V2 fully embraced chat-first co-authoring: users steer, push back, iterate, and drop into code whenever they need to. That pivot is the real story of this project.",
 
     myRole: [
       "Owned the UX end to end — from strategy through final shipped design across authoring, review, and execution flows",
@@ -77,48 +77,30 @@ export const caseStudies: CaseStudy[] = [
 
     keyDecisions: [
       {
-        title: "Visual pipeline canvas as the foundation",
+        sectionBreak: "V1 — Passive AI",
+        title: "Inline widget: AI generates, human approves",
         description:
-          "Before touching the AI interaction, we needed to make the overall pipeline structure visible. I designed a node-based canvas where each transform is a visual block connected to its data sources and outputs. This gave users a map of their data flow and made it obvious where a new transform should go. The canvas also became the anchor point for the AI panel. You click a node, the AI panel opens with full context about that node's inputs and expected outputs.",
-        images: ["v1-1 pipeline.png", "v2-3 data_pipeline_nodes.png"],
+          "The first version gave users an inline widget next to the editor. Select a target field, describe what you want, the AI writes the expression. Fast and contained — looked great on a whiteboard. In practice, users felt like they were filling out a form for the AI and waiting for it to hand something back. They couldn't steer it, only accept or reject it.",
+        images: ["v1-2 transform-select target.png", "v1-4 transform-AI widget.png"],
       },
       {
-        title: "AI target selection and smart matching",
+        title: "Diff view: transparency without agency",
         description:
-          "When users wanted to create a transform, the first step was selecting which data fields to operate on. I designed a target selection flow where the system suggests likely field matches based on the data schema. Instead of scrolling through hundreds of fields, users see a ranked list of recommendations. Selecting a target automatically scoped the AI's context so its suggestions were relevant to that specific field and data type.",
-        images: [
-          "v1-2 transform-select target.png",
-          "v1-3 transform-selected.png",
-        ],
+          "We added a line-by-line diff so users could see exactly what the AI was changing before committing. It reduced anxiety and built some trust. But transparency isn't the same as agency — users were still reviewing something they didn't write, in a language they barely knew. The core problem wasn't visibility. It was that the AI was driving and users were passengers.",
+        images: ["v1-7 transform-AI diff.png", "v1-8 transform-AI done.png"],
       },
       {
-        title: "V1: Inline AI widget for quick transforms",
+        sectionBreak: "V2 — Chat-First",
+        title: "Full pivot: chat-based co-authoring",
         description:
-          "The first iteration was a compact widget embedded directly in the transform editor. Users typed a plain language request, and the AI generated the expression code inline. It worked well for simple, one-shot transforms like type conversions or basic filters. The widget showed the generated code with syntax highlighting and a one-click apply button. But for anything that required iteration or explanation, the widget felt cramped and users lost track of what they had asked for.",
-        images: [
-          "v1-4 transform-AI widget.png",
-          "v1-5 transform-AI working.png",
-        ],
+          "We removed the widget and built a persistent chat panel alongside the editor. Users push, redirect, and refine in conversation — less-technical users start from plain language; technical users can inspect, edit, and take over in code at any point. The AI stopped being a vending machine and started being a collaborator you can actually argue with.",
+        images: ["v2 AI chat.png", "v2-1 transform-diff.png"],
       },
       {
-        title: "AI-generated transforms with diff view",
+        title: "Verification layer and the pipeline canvas",
         description:
-          "A critical trust issue came up in testing: users did not want to blindly accept AI-generated code. I introduced a diff view that showed exactly what the AI was changing. Before and after, line by line. Users could accept the full suggestion, accept parts of it, or ask the AI to try again. The diff view also highlighted potential issues like type mismatches or null handling gaps. This transformed the interaction from \"trust the AI\" to \"review and approve,\" which matched how engineering teams already worked with code reviews.",
-        images: [
-          "v1-6 transform-AI generating.png",
-          "v1-7 transform-AI diff.png",
-          "v1-8 transform-AI done.png",
-        ],
-      },
-      {
-        title: "V2: Chat panel for complex, multi-step transforms",
-        description:
-          "Based on feedback from the widget version, I designed a full chat panel that lived alongside the code editor. Users could have a back-and-forth conversation with the AI, asking it to refine, explain, or completely rethink a transform. The chat kept full history so users could reference earlier attempts. It also supported validation, showing the user if the generated transform would actually work with their data before they applied it. The chat panel became the primary AI interaction surface and the widget was kept as a shortcut for simple operations.",
-        images: [
-          "v2 AI chat.png",
-          "v2-1 transform-diff.png",
-          "v2-2 transform-complete.png",
-        ],
+          "With a trusted authoring surface in place, we redesigned the pipeline canvas to show the full data flow at a glance, then built out the verification layer: real-time preview, run + compare, full history, and one-click rollback. Every feature was earned by something we saw fail in testing — not designed upfront, discovered through it.",
+        images: ["v2-2 transform-complete.png", "v2-3 data_pipeline_nodes.png"],
       },
     ],
 
