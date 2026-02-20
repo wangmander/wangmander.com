@@ -88,15 +88,26 @@ export function CaseStudyDecisionImages({
                   className={`block w-full ${shadowClass} ${isMobile ? "w-[300px]" : ""}`}
                   style={isMobile ? { width: "300px" } : undefined}
                 >
-                  <div className={`relative overflow-hidden ${isMobile ? "h-[580px]" : "h-[420px]"}`}>
+                  {isMobile ? (
+                    <div className="relative h-[580px] overflow-hidden">
+                      <Image
+                        src={img.src}
+                        alt={label}
+                        fill
+                        className="object-cover object-top"
+                        sizes="300px"
+                      />
+                    </div>
+                  ) : (
                     <Image
                       src={img.src}
                       alt={label}
-                      fill
-                      className="object-cover object-top"
-                      sizes={isMobile ? "300px" : "50vw"}
+                      width={1200}
+                      height={1600}
+                      className="w-full h-auto"
+                      sizes="50vw"
                     />
-                  </div>
+                  )}
                 </button>
                 <div className={`mt-4 text-center ${isMobile ? "max-w-[300px]" : "max-w-full px-2"}`}>
                   {hasLabel ? (
