@@ -12,6 +12,9 @@ export type CaseStudy = {
   heroImage?: string;
   deckUrl?: string;
 
+  ctaUrl?: string;
+  ctaLabel?: string;
+
   // Narrative sections
   overview: string;
   myRole: string[];
@@ -22,6 +25,7 @@ export type CaseStudy = {
     title: string;
     description: string;
     images: string[];
+    layout?: "grid-2x2" | "side-by-side";
   }[];
   impact: string[];
   whatsNext: string[];
@@ -319,6 +323,8 @@ export const caseStudies: CaseStudy[] = [
     type: "side-project",
     imageDir: "/case-studies/capsulewebsite",
     heroImage: "hero-desktop.png",
+    ctaUrl: "https://capsuleweb.site",
+    ctaLabel: "Give it a try",
 
     overview:
       "CapsuleWebsite is a website vending machine. You pick a site type, describe what you want, pay about one dollar, and get a real published website with a shareable link in about 30 seconds. No templates to customize, no editors to learn, no code to write. The mental model is a literal vending machine: insert money, get the thing. I designed and built it as a solo project to explore the absolute simplest possible path from \"I need a website\" to a live URL. The product is live at capsuleweb.site with a growing gallery of user-created sites.",
@@ -345,27 +351,29 @@ export const caseStudies: CaseStudy[] = [
 
     keyDecisions: [
       {
-        title: "Vending machine model: one form, one payment, one output",
-        description:
-          "While every other builder adds options, CapsuleWebsite removes them. One page, bare minimum fields, and a Dispense button with Apple Pay and Google Pay built in. No account creation, no wizard, no templates to tweak. The simplicity is the product.",
-        images: ["desktop-full.png"],
-      },
-      {
         title: "From prompt to published in under 30 seconds",
         description:
-          "Fill out the form, hit Dispense, and the site generates immediately. A confirmation email arrives with your live link and site ID. Your site is automatically added to the public gallery — no extra steps.",
+          "Pick a site type, describe it, pay a dollar, hit Dispense. The site generates immediately, a confirmation email lands with your live link and site ID, and your site is automatically added to the public gallery — no extra steps, no account required.",
         images: [
           "1-fill_it_out.png",
           "2_website_published.png",
           "3-email_info_sent.png",
           "4-added_to_gallery.png",
         ],
+        layout: "grid-2x2",
       },
       {
-        title: "Quality floor and built-in sharing loop",
+        title: "Mobile-first: create and edit from anywhere",
         description:
-          "Every generated site hits a baseline quality bar — typography, spacing, and color are system-controlled so output always looks professional. The gallery doubles as social proof and a discovery surface, so every new site created helps attract the next user.",
-        images: ["mobile.png"],
+          "Both screens are designed for mobile. The creation flow works top to bottom on your phone — pick a type, describe your site, tap Dispense. The edit flow lets you update any existing site by entering your site ID and describing what should change in plain language.",
+        images: ["mobile1.png", "mobile2.png"],
+        layout: "side-by-side",
+      },
+      {
+        title: "The full marketing site",
+        description:
+          "The entire product lives on one page. No nav, no multi-step wizard, no account wall. The Dispense button with Apple Pay and Google Pay makes payment feel as immediate as the output.",
+        images: ["desktop-full.png"],
       },
     ],
 

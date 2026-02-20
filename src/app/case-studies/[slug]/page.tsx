@@ -171,6 +171,7 @@ export default function CaseStudyPage({ params }: Props) {
                       src: `/case-studies/${study.slug}/${img}`,
                       caption: humanizeFilename(img),
                     }))}
+                    layout={decision.layout}
                   />
                 )}
               </div>
@@ -209,7 +210,21 @@ export default function CaseStudyPage({ params }: Props) {
             </ul>
           </section>
 
-          {/* I: Deep Dive */}
+          {/* I: CTA */}
+          {study.ctaUrl && (
+            <section className="mb-20">
+              <a
+                href={study.ctaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-foreground text-white text-sm font-medium rounded-full hover:bg-neutral-700 transition-colors"
+              >
+                {study.ctaLabel || "Try it"} &rarr;
+              </a>
+            </section>
+          )}
+
+          {/* J: Deep Dive */}
           {study.deckUrl && (
             <section className="mb-24">
               <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
