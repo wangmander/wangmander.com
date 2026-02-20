@@ -347,13 +347,24 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Vending machine model: one form, one payment, one output",
         description:
-          "Every website builder adds more options to handle more use cases. CapsuleWebsite goes the opposite direction. The entire creation flow lives on a single page. You see the form, the payment button (\"Dispense\"), and that is it. No account creation required upfront. No multi-step wizard. The form asks for the bare minimum: site type, description, name, email, vibe, and color. The \"Dispense\" button with integrated Google Pay and Apple Pay makes the payment feel as simple as buying something from an actual vending machine. This extreme simplicity is the product.",
+          "While every other builder adds options, CapsuleWebsite removes them. One page, bare minimum fields, and a Dispense button with Apple Pay and Google Pay built in. No account creation, no wizard, no templates to tweak. The simplicity is the product.",
         images: ["desktop-full.png"],
+      },
+      {
+        title: "From prompt to published in under 30 seconds",
+        description:
+          "Fill out the form, hit Dispense, and the site generates immediately. A confirmation email arrives with your live link and site ID. Your site is automatically added to the public gallery — no extra steps.",
+        images: [
+          "1-fill_it_out.png",
+          "2_website_published.png",
+          "3-email_info_sent.png",
+          "4-added_to_gallery.png",
+        ],
       },
       {
         title: "Quality floor and built-in sharing loop",
         description:
-          "Rather than maximizing customization, I focused on making sure every generated site meets a baseline quality bar. Typography, spacing, and color are handled by the system so the output always looks professional regardless of what the user types. After creation, the share modal makes it easy to post to X, copy a caption for Instagram, or copy the link. Every site is also added to the public gallery on the CapsuleWebsite homepage. This means every new user creates content that helps attract the next user. The gallery doubles as social proof and inspiration.",
+          "Every generated site hits a baseline quality bar — typography, spacing, and color are system-controlled so output always looks professional. The gallery doubles as social proof and a discovery surface, so every new site created helps attract the next user.",
         images: ["mobile.png"],
       },
     ],

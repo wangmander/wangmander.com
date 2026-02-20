@@ -44,20 +44,31 @@ export function CaseStudyDecisionImages({
     <>
       <div className="space-y-6">
         {images.map((img, j) => {
-          const isMobile = img.src.toLowerCase().includes("mobile");
+          const srcLower = img.src.toLowerCase();
+          const isMobile = srcLower.includes("mobile");
+          const isContained = srcLower.includes("desktop-full");
+          const containerClass = isMobile
+            ? "flex flex-col items-center"
+            : isContained
+            ? "flex flex-col items-center"
+            : "";
+          const buttonWidth = isMobile ? "w-[320px]" : isContained ? "w-full max-w-[700px]" : "w-full";
+          const imgWidth = isMobile ? 640 : 2400;
+          const imgHeight = isMobile ? 1280 : 1600;
+          const imgSizes = isMobile ? "320px" : isContained ? "700px" : "(max-width: 1200px) 100vw, 1200px";
           return (
-          <div key={j} className={isMobile ? "flex flex-col items-center" : ""}>
+          <div key={j} className={containerClass}>
             <button
               onClick={() => lightbox.open(img.src, img.caption)}
-              className={`block rounded-[10px] overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.14),0_4px_8px_rgba(0,0,0,0.08)] transition-shadow cursor-zoom-in ${isMobile ? "w-[320px]" : "w-full"}`}
+              className={`block rounded-[10px] overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.14),0_4px_8px_rgba(0,0,0,0.08)] transition-shadow cursor-zoom-in ${buttonWidth}`}
             >
               <Image
                 src={img.src}
                 alt={img.caption}
-                width={isMobile ? 640 : 2400}
-                height={isMobile ? 1280 : 1600}
+                width={imgWidth}
+                height={imgHeight}
                 className="w-full h-auto"
-                sizes={isMobile ? "320px" : "(max-width: 1200px) 100vw, 1200px"}
+                sizes={imgSizes}
               />
             </button>
             <p className="mt-3 text-sm text-muted text-center">
