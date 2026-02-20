@@ -301,7 +301,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle:
       "Insert $1. Get a website. A real website link. No code. No waiting.",
     description:
-      "A website vending machine that lets anyone generate a real, published website in about 30 seconds for about one dollar.",
+      "A website vending machine that lets anyone generate a real, published website instantly.",
     tags: ["AI", "Generative UI", "Side Project"],
     role: "Creator & Designer",
     timeline: "2024 — Present",
@@ -315,7 +315,7 @@ export const caseStudies: CaseStudy[] = [
     builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT"],
 
     overview:
-      "CapsuleWebsite is a website vending machine. You pick a site type, describe what you want, pay about one dollar, and get a real published website with a shareable link in about 30 seconds. No templates to customize, no editors to learn, no code to write. The mental model is a literal vending machine: insert money, get the thing. I designed and built it as a solo project to explore the absolute simplest possible path from \"I need a website\" to a live URL. The product is live at capsuleweb.site with a growing gallery of user-created sites.",
+      "CapsuleWebsite is a website vending machine. You pick a site type, describe what you want, and get a real published website with a shareable link instantly. No templates to customize, no editors to learn, no code to write. The mental model is a literal vending machine: insert, get the thing. I designed and built it as a solo project to explore the absolute simplest possible path from \"I need a website\" to a live URL. The product is live at capsuleweb.site with a growing gallery of user-created sites.",
 
     myRole: [
       "Sole creator responsible for concept, design, and development",
