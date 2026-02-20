@@ -28,6 +28,8 @@ export type CaseStudy = {
     images: string[];
     captions?: string[];
     layout?: "grid-2x2" | "side-by-side";
+    featureTitle?: boolean;
+    sectionBreak?: string;
   }[];
   impact: string[];
   whatsNext: string[];
@@ -357,18 +359,28 @@ export const caseStudies: CaseStudy[] = [
 
     keyDecisions: [
       {
-        title: "From prompt to published in under 30 seconds",
+        title: "Empty state vs. filled",
         description:
-          "Pick a site type, describe it, pay a dollar, hit Dispense. The site generates immediately, a confirmation email lands with your live link and site ID, and your site is automatically added to the public gallery — no extra steps, no account required.",
-        images: [
-          "1-fill_it_out.png",
-          "2_website_published.png",
-          "3-email_info_sent.png",
-          "4-added_to_gallery.png",
-        ],
-        layout: "grid-2x2",
+          "The whole product is one form. Pick a category, describe your site, add photos, name it, choose a vibe. Nothing to configure before you start — the empty state is the starting line.",
+        images: ["0-emtpy.png", "1-fill_it_out.png"],
+        layout: "side-by-side",
       },
       {
+        title: "Dispensed",
+        description:
+          "Hit the button and two things happen immediately: a real site goes live at your custom URL, and a confirmation email lands with your link and site ID for edits later.",
+        images: ["2_website_published.png", "3-email_info_sent.png"],
+        layout: "side-by-side",
+      },
+      {
+        title: "Every site created lands in the public gallery",
+        description:
+          "The gallery lives on the homepage and updates with every new site. It's how new users discover what's possible — and how your site reaches people you never shared it with.",
+        images: ["4-added_to_gallery.png"],
+        featureTitle: true,
+      },
+      {
+        sectionBreak: "Mobile",
         images: ["mobile1.png", "mobile2.png"],
         captions: [
           "Mobile creation\nDesigned mobile-first so you can generate a real site from your phone in one vertical flow: pick a site type, describe what you want, tap Dispense, get a live link.",
@@ -392,7 +404,6 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     whatsNext: [
-      "Add paid edit flow ($1 to update an existing site) to create a simple ongoing revenue model",
       "Expand site types based on gallery data showing what people actually create",
       "Explore custom domain support so users can point their own URL to a CapsuleWebsite",
       "Test higher-tier options for multi-page sites while keeping the single-page experience as the default",

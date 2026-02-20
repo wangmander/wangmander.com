@@ -80,37 +80,32 @@ export function CaseStudyDecisionImages({
             const isMobile = img.src.toLowerCase().includes("mobile");
             const [label, ...descParts] = img.caption.split("\n");
             const description = descParts.join("\n");
+            const hasLabel = description.length > 0;
             return (
-              <div key={j} className="flex flex-col items-center">
+              <div key={j} className={`flex flex-col items-center ${isMobile ? "" : "flex-1 min-w-0"}`}>
                 <button
                   onClick={() => lightbox.open(img.src, img.caption)}
-                  className={`block ${shadowClass} ${isMobile ? "w-[300px]" : "w-full max-w-[480px]"}`}
+                  className={`block w-full ${shadowClass} ${isMobile ? "w-[300px]" : ""}`}
+                  style={isMobile ? { width: "300px" } : undefined}
                 >
-                  {isMobile ? (
-                    <div className="relative h-[580px] w-full overflow-hidden">
-                      <Image
-                        src={img.src}
-                        alt={label}
-                        fill
-                        className="object-cover object-top"
-                        sizes="300px"
-                      />
-                    </div>
-                  ) : (
+                  <div className={`relative overflow-hidden ${isMobile ? "h-[580px]" : "h-[420px]"}`}>
                     <Image
                       src={img.src}
                       alt={label}
-                      width={960}
-                      height={800}
-                      className="w-full h-auto"
-                      sizes="480px"
+                      fill
+                      className="object-cover object-top"
+                      sizes={isMobile ? "300px" : "50vw"}
                     />
-                  )}
+                  </div>
                 </button>
-                <div className="mt-4 text-center max-w-[300px]">
-                  <p className="text-sm font-semibold">{label}</p>
-                  {description && (
-                    <p className="mt-1 text-sm text-muted leading-relaxed">{description}</p>
+                <div className={`mt-4 text-center ${isMobile ? "max-w-[300px]" : "max-w-full px-2"}`}>
+                  {hasLabel ? (
+                    <>
+                      <p className="text-sm font-semibold">{label}</p>
+                      <p className="mt-1 text-sm text-muted leading-relaxed">{description}</p>
+                    </>
+                  ) : (
+                    <p className="text-sm text-muted">{label}</p>
                   )}
                 </div>
               </div>

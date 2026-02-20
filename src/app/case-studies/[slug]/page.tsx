@@ -162,12 +162,27 @@ export default function CaseStudyPage({ params }: Props) {
           <div className="space-y-24">
             {study.keyDecisions.map((decision, i) => (
               <div key={i}>
+                {decision.sectionBreak && (
+                  <div className="max-w-content mx-auto mb-16 flex items-center gap-6">
+                    <div className="h-px flex-1 bg-neutral-200" />
+                    <span className="text-xs uppercase tracking-widest text-muted font-medium">
+                      {decision.sectionBreak}
+                    </span>
+                    <div className="h-px flex-1 bg-neutral-200" />
+                  </div>
+                )}
                 {(decision.title || decision.description) && (
                   <div className="max-w-content mx-auto mb-8">
                     {decision.title && (
-                      <h3 className="text-heading-2 font-medium tracking-tight mb-4">
-                        {decision.title}
-                      </h3>
+                      decision.featureTitle ? (
+                        <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+                          {decision.title}
+                        </h3>
+                      ) : (
+                        <h3 className="text-heading-2 font-medium tracking-tight mb-4">
+                          {decision.title}
+                        </h3>
+                      )
                     )}
                     {decision.description && (
                       <p className="text-body text-muted leading-relaxed">
