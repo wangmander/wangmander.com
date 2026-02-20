@@ -47,7 +47,7 @@ export default function CaseStudyPage({ params }: Props) {
             {study.title}
           </h1>
           {study.tagline && (
-            <h2 className="mt-6 text-2xl md:text-3xl font-medium tracking-tight leading-snug max-w-3xl">
+            <h2 className="mt-6 text-2xl md:text-3xl font-medium tracking-tight leading-snug">
               {study.tagline}
             </h2>
           )}
