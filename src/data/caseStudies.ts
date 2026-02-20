@@ -106,12 +106,9 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     impact: [
-      "Reduced average time to write a data transform from 45 minutes to under 5 minutes",
-      "AI-assisted transforms accounted for 70% of all new transforms within 3 months of launch",
-      "Support tickets related to transformation errors dropped by 60%",
-      "Onboarding time for new customers decreased from 3 weeks to 4 days",
-      "Increased self-serve pipeline creation by 340%",
-      "Directly contributed to closing 2 enterprise deals worth $8M+ ARR",
+      "↓ 35% time to first successful transform",
+      "↓ 25% runs to success — faster iteration cycles",
+      "~40% of transforms completed without any manual code writing",
     ],
 
     whatsNext: [
