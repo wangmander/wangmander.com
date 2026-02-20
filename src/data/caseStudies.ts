@@ -297,7 +297,7 @@ export const caseStudies: CaseStudy[] = [
   {
     title: "Capsuleweb.site",
     slug: "capsulewebsite",
-    tagline: "A $1 website vending machine I built from scratch that turns a single sentence into a live, shareable link in seconds—no code, no setup, no waiting.",
+    tagline: "A $1 website vending machine I built from scratch that turns a single sentence into a live, shareable link in seconds—no sign up, no code, no waiting.",
     subtitle:
       "Insert $1. Get a website. A real website link. No code. No waiting.",
     description:
