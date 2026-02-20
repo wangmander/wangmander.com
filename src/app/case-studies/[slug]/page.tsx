@@ -44,16 +44,38 @@ export default function CaseStudyPage({ params }: Props) {
             &larr; Back
           </Link>
           <h1 className="mt-8 text-hero font-medium tracking-tight text-balance">
-            {study.title}
+            {study.titleUrl ? (
+              <a
+                href={study.titleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-end gap-3 hover:opacity-70 transition-opacity"
+              >
+                {study.title}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mb-2 shrink-0 w-8 h-8 md:w-10 md:h-10"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            ) : (
+              study.title
+            )}
           </h1>
           {study.tagline && (
             <h2 className="mt-6 text-2xl md:text-3xl font-medium tracking-tight leading-snug">
               {study.tagline}
             </h2>
           )}
-          <p className="mt-4 text-body-lg text-muted max-w-content">
-            {study.subtitle}
-          </p>
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
             <div>
               <span className="text-muted">Role</span>

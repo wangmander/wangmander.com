@@ -12,6 +12,7 @@ export type CaseStudy = {
   heroImage?: string;
   deckUrl?: string;
 
+  titleUrl?: string;
   ctaUrl?: string;
   ctaLabel?: string;
   tagline?: string;
@@ -311,6 +312,7 @@ export const caseStudies: CaseStudy[] = [
     type: "side-project",
     imageDir: "/case-studies/capsulewebsite",
     heroImage: "hero-desktop.png",
+    titleUrl: "https://capsuleweb.site",
     ctaUrl: "https://capsuleweb.site",
     ctaLabel: "Give it a try",
     builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT"],
