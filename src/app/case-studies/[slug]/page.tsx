@@ -247,7 +247,7 @@ export default function CaseStudyPage({ params }: Props) {
         <div className="max-w-content mx-auto">
           <section className="mb-20">
             <h2 className="text-xs uppercase tracking-wider text-muted mb-6">
-              Impact
+              {study.impactLabel ?? "Impact"}
             </h2>
             <ul className="space-y-3">
               {study.impact.map((item, i) => (

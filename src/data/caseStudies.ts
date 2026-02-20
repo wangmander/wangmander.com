@@ -18,6 +18,7 @@ export type CaseStudy = {
   tagline?: string;
   builtWith?: string[];
   keyDecisionsLabel?: string;
+  impactLabel?: string;
 
   // Narrative sections
   overview: string;
@@ -52,6 +53,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Lead Product Designer",
     timeline: "2025 — Present",
     team: "Core pod of 4 (Product, Engineering, Design)",
+    impactLabel: "Success Targets",
     type: "featured",
     imageDir: "/case-studies/c3-transform",
     heroImage: "v2-2 transform-complete.png",
