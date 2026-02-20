@@ -309,7 +309,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["AI", "Generative UI", "Side Project"],
     role: "Creator & Designer",
     timeline: "2025 — Present",
-    team: "Solo",
+    team: "Solo design + AI-assisted development",
     type: "side-project",
     imageDir: "/case-studies/capsulewebsite",
     heroImage: "hero-desktop.png",
