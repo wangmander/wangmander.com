@@ -113,7 +113,6 @@ export const caseStudies: CaseStudy[] = [
 
     whatsNext: [
       "Extend AI assistance to other parts of the pipeline beyond transforms (data source configuration, model tuning)",
-      "Add collaborative features so multiple team members can work on transforms simultaneously",
       "Build a transform library where teams can share and reuse proven patterns across projects",
       "Explore proactive AI suggestions that detect common data quality issues before users encounter them",
     ],
