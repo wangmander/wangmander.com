@@ -3,6 +3,8 @@ import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
 import { getImagesForCaseStudy, humanizeFilename } from "@/lib/images";
 import { CaseStudyHero, CaseStudyDecisionImages } from "@/components/CaseStudyImages";
+import { GuildyCaseStudy } from "@/components/GuildyCaseStudy";
+import { CapsulewebCaseStudy } from "@/components/CapsulewebCaseStudy";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
@@ -26,6 +28,14 @@ export function generateMetadata({ params }: Props): Metadata {
 export default function CaseStudyPage({ params }: Props) {
   const study = caseStudies.find((cs) => cs.slug === params.slug);
   if (!study) notFound();
+
+  // Custom layouts
+  if (study.slug === "guildy") {
+    return <GuildyCaseStudy study={study} />;
+  }
+  if (study.slug === "capsulewebsite") {
+    return <CapsulewebCaseStudy study={study} />;
+  }
 
   const allImages = getImagesForCaseStudy(study.slug);
   const heroSrc = study.heroImage

@@ -80,7 +80,7 @@ export function Lightbox({
 
       {/* Image */}
       <div
-        className={`relative max-w-[92vw] max-h-[90vh] transition-all duration-200 ease-out ${
+        className={`relative max-w-[92vw] max-h-[90vh] overflow-y-auto overscroll-contain transition-all duration-200 ease-out rounded-[10px] ${
           visible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4"
@@ -92,9 +92,10 @@ export function Lightbox({
           alt={alt}
           width={3000}
           height={2000}
-          className="max-w-full max-h-[90vh] w-auto h-auto rounded-[10px]"
+          className="max-w-full w-auto h-auto rounded-[10px]"
           quality={100}
           priority
+          unoptimized={src.toLowerCase().endsWith(".gif")}
         />
       </div>
     </div>

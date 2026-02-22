@@ -12,6 +12,8 @@ export function CaseStudyHero({
 }) {
   const lightbox = useLightbox();
 
+  const isGif = src.toLowerCase().endsWith(".gif");
+
   return (
     <>
       <button
@@ -25,6 +27,7 @@ export function CaseStudyHero({
           height={1600}
           className="w-full h-auto"
           priority
+          unoptimized={isGif}
           sizes="(max-width: 1200px) 100vw, 1200px"
         />
       </button>

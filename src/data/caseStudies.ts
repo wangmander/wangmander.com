@@ -59,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "v2-2 transform-complete.png",
 
     overview:
-      "C3 Transform is the data transformation engine inside C3 AI Suite — how enterprise teams shape raw data into inputs for AI models. When we redesigned the authoring experience, we started down the path most AI tools take: AI generates, human reviews, human approves. V1 shipped that way. Users hated it — not the output, but the feeling of being a spectator in their own workflow. So we scrapped the model entirely. V2 fully embraced chat-first co-authoring: users steer, push back, iterate, and drop into code whenever they need to. That pivot is the real story of this project.",
+      "C3 Transform is the data transformation engine — data transforms sit inside the core of C3's platform product, AI Studio — how enterprise teams shape raw data into inputs for AI models and eventually serve into apps. We began with a manual-first redesign to support existing low-code and high-code workflows, with AI generation added as a secondary path. After user testing, it became clear that AI should not sit on the side as a helper. It should be the starting point. V2 shifted to a chat-first co-authoring model where users guide the system, iterate in real time, and move into code whenever needed. That pivot is what made the experience both faster and more usable.",
 
     myRole: [
       "Owned the UX end to end — from strategy through final shipped design across authoring, review, and execution flows",
@@ -69,7 +69,7 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     problem:
-      "Writing data transformations in C3 required deep knowledge of the platform's proprietary expression language. Even experienced data engineers spent hours on transforms that should have taken minutes. New customers hit a wall during onboarding because they could not write transforms without extensive training. Support tickets about transformation errors were the single largest category in our backlog. The expression language was powerful but obscure. Simple tasks like joining two data sources or filtering by date required syntax that felt nothing like SQL or Python. We were asking users to learn a new language just to do something they already knew how to do.",
+      "Users ran into three core problems. Newer users had no clear starting point and were expected to understand schemas and mappings before they could do anything useful. Experienced users often avoided the low-code experience because it obscured the underlying logic, which is a dealbreaker in data engineering where transparency matters. And the workflow itself was broken: the wizard forced a linear process onto a task that is naturally iterative, so troubleshooting became slow and painful, with users manually translating error logs into code fixes.",
 
     userInsights: [
       "Users want to steer, not spectate — the best moments in testing were when someone pushed back on a suggestion, redirected the AI, or jumped into the code themselves. The worst were when they felt like they were just waiting for something to approve.",
@@ -78,7 +78,7 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     approach:
-      "We opened with a competitive sweep — every AI-native tool with a meaningful co-authoring or code-generation model, from coding assistants to emerging data tools. The goal wasn't to copy patterns but to understand what trust looks like when humans and AI share a workflow. From there, we ran a series of PDE whiteboarding sprints — Product, Design, and Engineering working through the authoring flow together before anyone touched a design tool. Fast, argumentative, generative. I moved into prototyping quickly and kept fidelity intentionally low so we could stress-test ideas without getting precious about them. We put early concepts in front of data engineers, solution engineers, and app developers and watched them break things. Every feature in the verification layer — preview, diff, history, run + compare, rollback — was earned by something we saw go wrong in testing.",
+      "We started with a competitive sweep of AI-native tools with strong co-authoring and code-generation patterns, not to copy them, but to understand how they handled trust, control, and transparency with AI in the loop. From there, we ran PDE whiteboarding sprints with Product, Design, and Engineering to align on the authoring model before touching UI. I moved quickly into low-fidelity prototypes to test the workflow without over-investing in visuals, then validated concepts with data engineers, solution engineers, and app developers. That process shaped the final co-authoring model and helped us prioritize the verification layer: preview, diff, history, run and compare, and rollback.",
 
     keyDecisions: [
       {
@@ -231,93 +231,90 @@ export const caseStudies: CaseStudy[] = [
   {
     title: "Guildy.ai",
     slug: "guildy",
-    tagline: "Job hunting is becoming an inbox-scale problem—more threads, more rounds, more noise—so I built Guildy 0→1 to turn Gmail into a live pipeline and generate targeted prep for every stage.",
-    subtitle:
-      "A Gmail-based job search pipeline with AI interview prep.",
+    tagline: "Job hunting is no longer a discovery problem. It is an inbox-scale workflow problem. I built Guildy 0→1 to turn recruiter email threads into live interview pipelines and stage-aware prep.",
+    subtitle: "A Gmail-native intelligence layer that converts recruiter email threads into live interview pipelines.",
     description:
       "Turning the chaos of job hunting into a clean, automated pipeline that lives where your job search already happens: your inbox.",
     tags: ["AI", "Productivity", "Side Project"],
-    role: "Creator & Designer",
+    role: "Founder, Product Design, and AI UX (0→1)",
     timeline: "2025 — Present",
     team: "Solo design + AI-assisted development",
     type: "side-project",
     imageDir: "/case-studies/guildy",
-    builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT", "Google OAuth"],
-    heroImage: "guildy-desktop.png",
+    builtWith: ["Claude Code", "Antigravity", "v0", "Supabase", "GPT-4o mini", "Gemini", "Vercel", "Google OAuth"],
+    heroImage: "guildy demo.gif",
 
+    // Fields below used only for homepage card fallback — page renders via GuildyCaseStudy component
     overview:
-      "Guildy turns your Gmail inbox into an automated job search pipeline. It scans your email threads, detects job applications and recruiter conversations, and organizes everything into a clean pipeline with stage tracking. For each job, Guildy provides company intel, context-aware interview prep, and AI-generated practice questions tied to the specific role. I designed and built the entire product as a side project using AI-assisted development tools. The core idea is simple: job hunting is chaotic because everything important lives in email threads, calendars, and scattered notes. Guildy turns that mess into structure automatically.",
+      "Guildy is a Gmail-native intelligence layer for job seekers. It syncs your Gmail, detects recruiting-related email activity, creates and updates pipeline items automatically, surfaces next actions and interview prep, and replaces manual spreadsheet tracking entirely.",
 
     myRole: [
-      "Sole designer and co-founder responsible for all product decisions",
-      "Designed the full experience from Gmail connection through pipeline management and interview prep",
-      "Built the product using AI-assisted development tools (Cursor, v0, Claude)",
-      "Defined the stage inference logic and rules for reducing false positives",
+      "Founder responsible for all product, design, and AI architecture decisions",
+      "Designed the Gmail-native pipeline and thread-first detection system",
+      "Built the product using AI-assisted development tools",
       "Ran the private beta and iterated based on user feedback",
     ],
 
     problem:
-      "Job seekers lose track of applications because the source of truth is scattered across email threads, calendar invites, and spreadsheets. Status updates from recruiters arrive in email and are easy to miss. Interview preparation happens ad hoc and is disconnected from the job context. Most people try to manage this with spreadsheets or job tracker apps, but those require constant manual entry. The tools that exist today are either too manual (Notion templates, Google Sheets) or too disconnected from where the action actually happens (email). Nobody had built a job pipeline that starts from the inbox and updates itself.",
+      "Job seekers lose track of applications because the source of truth is scattered across email threads, calendar invites, and spreadsheets. Recruiting emails look like generic notifications—signal gets lost in volume. Manual trackers lag behind inbox reality. And missing a scheduling email matters more than any organizational failure.",
 
     userInsights: [
-      "Job seekers described their tracking system as \"a spreadsheet I update when I remember to\" and most were at least a week behind on status updates",
-      "The most stressful part of job hunting was not the interviews but losing track of where things stood across 10 to 20 active applications",
-      "Users wanted interview prep tied to the specific company and role, not generic question banks",
-      "People feared missing a recruiter email or forgetting to follow up more than they feared the interviews themselves",
+      "Linguistic variance: startup recruiters and enterprise ATS systems require the same detection to work across wildly different vocabulary and structure",
+      "Contextual decay: short follow-up replies contain no stage information on their own—context must be carried across the full thread history",
     ],
 
     approach:
-      "I started by mapping the entire job search workflow from the moment a user applies to the moment they get an offer or rejection. Every signal in that workflow passes through email. Application confirmations, recruiter outreach, interview scheduling, feedback, offers, and rejections all arrive as email threads. That was the key insight. If we could reliably parse email threads, we could build a pipeline that updates itself. I designed Guildy to connect to Gmail via OAuth, scan threads for job-related signals, and create pipeline items automatically. Stage inference uses a hybrid approach: rules and keyword detection for common patterns, plus an LLM for edge cases. A key design decision was requiring two or more tracked signals in the same email to reduce false positives. The job details panel combines pipeline context with AI interview prep, showing company intel, next actions, and practice questions all in one place.",
+      "Guildy runs every incoming email through a layered four-gate detection system that separates signal routing from LLM classification. Thread inheritance ensures known recruiting threads keep being monitored. A hard junk sieve filters noise before it reaches classification. A warm-lead router passes anything plausibly relevant forward. The LLM classifier makes the final call on recruiting relevance, message type, and stage delta—as separate decisions.",
 
     keyDecisions: [
       {
         title: "Gmail-first pipeline with automatic stage inference",
         description:
-          "Instead of asking users to manually create entries, Guildy scans Gmail threads and creates pipeline items automatically. It extracts company names, role context, and current stage from email signals. The pipeline view shows all active applications with their inferred stage (recruiter screen, technical screen, onsite, offer, rejection). Users can always override stage assignments, but the goal is that most updates happen without any manual input. The desktop view shows the pipeline on the left and a rich detail panel on the right with company intel, email thread summaries, and context for the next action.",
-        images: ["guildy-desktop.png"],
+          "Instead of asking users to manually create entries, Guildy scans Gmail threads and creates pipeline items automatically. The pipeline view shows all active applications with their inferred stage. Users can always override stage assignments, but the goal is that most updates happen without any manual input.",
+        images: ["guildy dashboard.png"],
       },
       {
         title: "Context-aware interview prep tied to each job",
         description:
-          "Each job in the pipeline has a details panel that goes beyond just tracking. It pulls in company intel (industry, size, location, recent news), shows the email thread summary, and surfaces the next action the user should take. Below that, Guildy generates interview prep specific to the company and role. This includes likely interview questions, suggested talking points, and company-specific research. The mobile view makes this accessible on the go so users can review prep right before an interview. The prep is not generic. It is tied to the actual job context Guildy has gathered from the email threads.",
-        images: ["guildy-mobile.png"],
+          "Each job in the pipeline has a details panel that shows the email thread summary, next action, and interview prep specific to the company and role. The mobile view makes this accessible on the go.",
+        images: ["mobile 1.png", "mobile 2.png"],
+        layout: "side-by-side",
       },
     ],
 
     impact: [
-      "Built end-to-end as a solo designer using AI-assisted development tools",
-      "Currently in private beta with active job seekers",
-      "Stage inference accuracy above 85% with the two-signal threshold rule",
-      "Early users report the product replaced their manual spreadsheet tracking entirely",
+      "Replaced spreadsheet tracking for early users",
+      "Reduced manual status updating to near zero across active pipelines",
+      "Increased user confidence that they were not missing recruiter updates",
+      "Established a foundation for interview prep tied to live pipeline context",
     ],
 
     whatsNext: [
-      "Add voice-based mock interview with scoring (rates answer quality and provides improvement tips)",
-      "Expand stage inference to handle edge cases like referral introductions and recruiter cold outreach",
-      "Build a token-based monetization model with a referral loop for earning additional usage",
-      "Add calendar integration so interview prep surfaces automatically before scheduled calls",
+      "Voice mock interview with scoring and feedback",
+      "Calendar-aware prep that surfaces automatically before scheduled interviews",
+      "Stronger handling of edge cases: referrals, cold outreach, multi-recruiter threads",
+      "Token/referral monetization loop",
     ],
   },
   {
     title: "Capsuleweb.site",
     slug: "capsulewebsite",
-    tagline: "A $1 website vending machine I built from scratch that turns a single sentence into a live, shareable link in seconds—no sign up, no code, no waiting.",
+    tagline: "An AI website generation product I took from concept to launch, built around a zero-friction flow that turns a single prompt into a live, shareable site in seconds. No sign up, no code, no waiting.",
     subtitle:
       "Insert $1. Get a website. A real website link. No code. No waiting.",
     description:
       "A website vending machine that lets anyone generate a real, published website instantly.",
     tags: ["AI", "Generative UI", "Side Project"],
-    role: "Creator & Designer",
+    role: "Founder, Product Design, and AI UX (0→1)",
     timeline: "2025 — Present",
     team: "Solo design + AI-assisted development",
     type: "side-project",
     imageDir: "/case-studies/capsulewebsite",
     heroImage: "hero-desktop.png",
     titleUrl: "https://capsuleweb.site",
-    keyDecisionsLabel: "User Flow",
     ctaUrl: "https://capsuleweb.site",
     ctaLabel: "Give it a try",
-    builtWith: ["v0", "Vercel", "Antigravity", "Claude Code", "Supabase", "ChatGPT"],
+    builtWith: ["Claude Code", "v0", "Antigravity", "Vercel", "Supabase", "GPT-4o", "Gemini", "Stripe"],
 
     overview:
       "CapsuleWebsite is a website vending machine. You pick a site type, describe what you want, and get a real published website with a shareable link instantly. No templates to customize, no editors to learn, no code to write. The mental model is a literal vending machine: insert, get the thing. I designed and built it as a solo project to explore the absolute simplest possible path from \"I need a website\" to a live URL. The product is live at capsuleweb.site with a growing gallery of user-created sites.",
